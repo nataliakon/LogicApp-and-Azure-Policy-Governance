@@ -1,1 +1,1 @@
-# LogicApp-and-Azure-Policy-Governenance
+# LogicApp-and-Azure-Policy-Governance
