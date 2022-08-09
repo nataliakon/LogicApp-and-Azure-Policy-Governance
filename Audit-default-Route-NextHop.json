@@ -1,0 +1,52 @@
+{
+    "mode": "All",
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "Microsoft.Network/routeTables/routes[*].addressPrefix",
+            "equals": "0.0.0.0/0"
+          },
+          {
+            "field": "Microsoft.Network/routeTables/routes[*].nextHopIpAddress",
+            "notEquals": "[parameters('FWIP')]"
+          },
+          {
+            "field": "location",
+            "equals": "[parameters('location')]"
+          }
+        ]
+      },
+      "then": {
+        "effect": "[parameters('effect')]"
+      }
+    },
+    "parameters": {
+      "effect": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Effect",
+          "description": "Enable or disable the execution of the policy"
+        },
+        "allowedValues": [
+          "Audit",
+          "Disabled"
+        ],
+        "defaultValue": "Audit"
+      },
+      "FWIP": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Firewall IP address",
+          "description": null
+        }
+      },
+      "location": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Location of virtual networks",
+          "description": "Azure region for the route table and virtual networks. As both resource are regional"
+        }
+      }
+    }
+  }
