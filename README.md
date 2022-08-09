@@ -1,9 +1,9 @@
-# LogicApp-and-Azure-Policy-Governance
+# LogicApp-and-Azure-Policy-UDR remediation
 
 
 ## Part 1: Azure Policy to report:
 
-1. Create the policy at management group level that holds the subscriptions in scope. 
+1. Create the policy at management group level that holds the subscriptions in scope. Use Audit-Route-NextHop.json. 
 2. Create individual assignments per subscription for the policy.
 3. Wait 30 min or so. Or cloud shell, switch subscription and run Start-AzPolicyComplianceScan
 4. View results
